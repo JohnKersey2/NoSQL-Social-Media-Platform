@@ -29,7 +29,7 @@ const thoughtSchema = new Schema(
         },
         id: false,
     }
-)
+);
 
 // Todo: "Created a virtual called 'reactionCount' the retrieves the length of the thought's reactions array field on query"
 
