@@ -19,9 +19,10 @@ const thoughtSchema = new Schema(
             required: true,
             ref: 'user',
         },
-        // reactions: {
-        // Todo: "Array of nested documents created with the reactionSchema"
-        // }
+        reactions: {
+        type: Schema.Types.Array,
+        ref: 'reaction'
+        }
     },
     {
         toJSON: {
@@ -30,8 +31,6 @@ const thoughtSchema = new Schema(
         id: false,
     }
 );
-
-// Todo: "Created a virtual called 'reactionCount' the retrieves the length of the thought's reactions array field on query"
 
 const Thought = model('thought', thoughtSchema);
 

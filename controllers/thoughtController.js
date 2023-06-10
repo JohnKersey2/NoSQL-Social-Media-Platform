@@ -74,7 +74,7 @@ module.exports = {
     console.log(req.body);
     Thoughts.findOneAndUpdate(
       { _id: req.params.thoughtId },
-      { $addToSet: { reactions: req.body } },
+      { $addToSet: { reactions: req.body,  } },
       { runValidators: true, new: true }
     )
       .then((thought) =>
@@ -84,6 +84,23 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+
+
+getReactions(req, res) {
+    Thoughts.find({ _id: req.params.thoughtID }, ['reactions'])
+        .then((reactions) => res.json(reactions))
+        .catch((err) => res.status(500).json(err));
+},
+
+getOneReaction(req, res) {
+    Thoughts.findOne({ _id: req.params.thoughtID })
+        .then((thought) => {
+            var reaction = thought.reactions.filter(
+                reaction => reaction.reactionId ==
+                    req.params.reactionID);
+            res.json(reaction)
+        })
+},
 
   removeReaction(req, res) {
     Thoughts.findOneAndUpdate(

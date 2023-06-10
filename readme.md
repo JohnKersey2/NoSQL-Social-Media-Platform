@@ -8,13 +8,15 @@ This application uses MongoDB to create an API to handle large amounts of user d
 
 ## Video Demo
 
-TBA
+<https://drive.google.com/file/d/1s2FtRWmi4QVAuc8VdzcILrLlW0cTZFx8/view>
 
 ## Criteria
 
 For this project, I had to create a command line application to access a MongoDB database. I had to create models for handling users, friends, posts, and reactions. I also had to create API routes to handle POST, PUT, and DELETE routes to create and delete data as the user needs.
 
 ## Known Issues
+
+Reactions not generating their own ID is not allowing me to get a single reaction or delete a reaction
 
 ## Future Development Notes
 
